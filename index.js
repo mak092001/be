@@ -32,6 +32,12 @@ app.get("/", (req, res) => {
     })
     .catch((err) => console.log("err at search" + err));
 });
+app.get("/:id", (req, res) => {
+  getschema
+    .findById(req.params.id)
+    .then((op) => res.send(op))
+    .catch((err) => console.log(err));
+});
 app.post("/", (req, res) => {
   let createpost = new getschema({
     task: req.body.saveastask,
